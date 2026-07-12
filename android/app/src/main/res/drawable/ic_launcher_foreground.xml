@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Simple bidirectional swap glyph (matches the in-app Convert tab icon),
+     centered and scaled to sit within the adaptive icon's 72dp safe zone. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+  <group
+      android:scaleX="2.0"
+      android:scaleY="2.0"
+      android:translateX="30"
+      android:translateY="30">
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2.2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M4,8 L18,8 M14.5,4.7 L18,8 L14.5,11.3 M20,16 L6,16 M9.5,12.7 L6,16 L9.5,19.3" />
+  </group>
+</vector>

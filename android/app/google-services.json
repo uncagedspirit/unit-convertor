@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "285634364179",
+    "project_id": "unit-converter-calculato-d464f",
+    "storage_bucket": "unit-converter-calculato-d464f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:285634364179:android:1e3ad2ada08922dd9c90e6",
+        "android_client_info": {
+          "package_name": "com.unitcalc.toolkit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBz6bSrLZtD1BDYLNxSLUsuJAI43Zmb2XU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

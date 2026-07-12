@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dark-mode launch background, matching AppNeutralColors.dark.scaffold,
+     so the brief splash before the Flutter engine draws isn't a jarring
+     white flash for users on a dark theme/system dark mode. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/launch_background_dark" />
+</layer-list>

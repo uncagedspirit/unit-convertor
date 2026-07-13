@@ -113,44 +113,56 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 },
                 itemBuilder: (context, i) {
                   final page = _pages[i];
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 32),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 96,
-                          height: 96,
-                          decoration: BoxDecoration(
-                            color: scheme.primaryContainer,
-                            shape: BoxShape.circle,
-                          ),
-                          child: Icon(
-                            page.icon,
-                            size: 44,
-                            color: scheme.onPrimaryContainer,
+                  // Centered when there's room, but scrollable so the icon +
+                  // title + body never overflow on short screens or at large
+                  // text-scale settings.
+                  return LayoutBuilder(
+                    builder: (context, constraints) => SingleChildScrollView(
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(
+                          minHeight: constraints.maxHeight,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 32),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: 96,
+                                height: 96,
+                                decoration: BoxDecoration(
+                                  color: scheme.primaryContainer,
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Icon(
+                                  page.icon,
+                                  size: 44,
+                                  color: scheme.onPrimaryContainer,
+                                ),
+                              ),
+                              const SizedBox(height: 32),
+                              Text(
+                                page.title,
+                                textAlign: TextAlign.center,
+                                style: fredokaStyle(
+                                  size: 22,
+                                  color: neutrals.textPrimary,
+                                ),
+                              ),
+                              const SizedBox(height: 12),
+                              Text(
+                                page.body,
+                                textAlign: TextAlign.center,
+                                style: jakartaStyle(
+                                  size: 14.5,
+                                  color: neutrals.textTertiary,
+                                  height: 1.55,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                        const SizedBox(height: 32),
-                        Text(
-                          page.title,
-                          textAlign: TextAlign.center,
-                          style: fredokaStyle(
-                            size: 22,
-                            color: neutrals.textPrimary,
-                          ),
-                        ),
-                        const SizedBox(height: 12),
-                        Text(
-                          page.body,
-                          textAlign: TextAlign.center,
-                          style: jakartaStyle(
-                            size: 14.5,
-                            color: neutrals.textTertiary,
-                            height: 1.55,
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
                   );
                 },

@@ -16,7 +16,12 @@ Future<void> main() async {
     DeviceOrientation.portraitDown,
   ]);
   final appState = AppState();
-  await appState.loadFromPrefs();
+  try {
+    await appState.loadFromPrefs();
+  } catch (_) {
+    // Corrupted/unavailable SharedPreferences: continue with in-memory
+    // defaults rather than blocking startup entirely.
+  }
   await AnalyticsService.init();
   runApp(
     ChangeNotifierProvider.value(

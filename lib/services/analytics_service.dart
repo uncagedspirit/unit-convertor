@@ -16,10 +16,17 @@ class AnalyticsService {
 
   static FirebaseAnalytics? _instance;
 
+  /// Never throws - a Firebase init failure (bad config, no network on
+  /// first launch, etc.) must not block app startup. Analytics simply stays
+  /// off for the session, same as on unsupported platforms.
   static Future<void> init() async {
     if (!isSupported) return;
-    await Firebase.initializeApp();
-    _instance = FirebaseAnalytics.instance;
+    try {
+      await Firebase.initializeApp();
+      _instance = FirebaseAnalytics.instance;
+    } catch (_) {
+      _instance = null;
+    }
   }
 
   /// Attach to a [Navigator] to automatically log a screen view whenever a

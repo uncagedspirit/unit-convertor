@@ -22,25 +22,16 @@ Speed, Time, Data, Energy, and Pressure.
 
 A few things still need attention before your first Play Store upload:
 
-1. **Support contact email** - `your-support-email@example.com` appears in
-   `lib/screens/legal/privacy_policy_screen.dart`, `lib/screens/legal/
-   terms_screen.dart`, `docs/privacy-policy.html`, and `docs/terms.html`.
-   Replace all four with a real address you monitor.
-2. **Back up the release keystore** - `android/app/upload-keystore.jks` and
-   `android/key.properties` are gitignored on purpose (never commit
-   signing secrets) but that also means **they exist only on this
-   machine**. Copy both somewhere safe now (a password manager or
-   encrypted backup) - if you lose them, you can never publish an update
-   to this app under the same Play Store listing again. Google's Play App
-   Signing can help recover from a lost *upload* key, but there's no
-   recovery path if you've never enrolled in that first.
-3. **Play Console Data Safety form** - since this app now uses Firebase
-   Analytics, declare "Analytics" data collection (usage/app interactions,
-   device/app info) with "anonymous, not linked to identity" - see
-   [Firebase's own guide](https://firebase.google.com/docs/android/play-data-disclosure)
-   for exactly what to check. The advertising ID is explicitly *not*
-   collected (see `AndroidManifest.xml`), so it shouldn't be declared.
-3. **Play Console Data Safety form** - since this app now uses Firebase
+1. **Back up the release keystore** - the shared upload keystore this app
+   signs with lives at `D:\keystore-backup\common\common-upload-keystore.jks`
+   (referenced from `android/key.properties`, which is gitignored on
+   purpose - never commit signing secrets). Make sure that keystore is
+   backed up somewhere safe (a password manager or encrypted backup) - if
+   it's lost, you can never publish an update to this app, or any other
+   app signed with the same key, under the same Play Store listing again.
+   Google's Play App Signing can help recover from a lost *upload* key,
+   but there's no recovery path if you've never enrolled in that first.
+2. **Play Console Data Safety form** - since this app uses Firebase
    Analytics, declare "Analytics" data collection (usage/app interactions,
    device/app info) with "anonymous, not linked to identity" - see
    [Firebase's own guide](https://firebase.google.com/docs/android/play-data-disclosure)
@@ -90,9 +81,6 @@ screen (including back-button/navigation behavior) headlessly via
 - `lib/theme/` - accent-color seeding, category card palette, and fonts
   (self-hosted Fredoka + Plus Jakarta Sans variable fonts, not the
   `google_fonts` package, to avoid its runtime fetch/size overhead).
-- `lib/services/analytics_service.dart` - the Firebase Analytics wrapper
-  (Android only; every method safely no-ops if Firebase was never
-  initialized, which is the state all widget tests run in).
 - `lib/services/analytics_service.dart` - the Firebase Analytics wrapper
   (Android only; every method safely no-ops if Firebase was never
   initialized, which is the state all widget tests run in).

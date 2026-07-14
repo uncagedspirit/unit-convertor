@@ -40,7 +40,6 @@ void main() {
       expect(find.text('Privacy Policy'), findsOneWidget);
       expect(find.textContaining('Firebase Analytics'), findsWidgets);
       expect(find.textContaining('anonymous'), findsWidgets);
-      expect(find.textContaining(supportContactEmail), findsOneWidget);
     },
   );
 
@@ -72,7 +71,6 @@ void main() {
 
     expect(find.text('Terms of Use'), findsOneWidget);
     expect(find.textContaining('Accuracy disclaimer'), findsOneWidget);
-    expect(find.textContaining(supportContactEmail), findsOneWidget);
   });
 
   testWidgets('Terms of Use never contains the real developer email', (

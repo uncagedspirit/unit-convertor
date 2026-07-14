@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'legal_document_screen.dart';
-import 'privacy_policy_screen.dart' show supportContactEmail;
 
 class TermsScreen extends StatelessWidget {
   const TermsScreen({super.key});
@@ -47,10 +46,6 @@ class TermsScreen extends StatelessWidget {
           'Changes to these terms',
           'We may update these terms from time to time. Continuing to use '
               'the app after an update means you accept the revised terms.',
-        ),
-        LegalSection(
-          'Contact us',
-          'Questions about these terms? Reach out at $supportContactEmail.',
         ),
       ],
     );

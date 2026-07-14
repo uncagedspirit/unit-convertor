@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'legal_document_screen.dart';
 
-/// Contact info is intentionally a placeholder - fill in a real support
-/// address before publishing.
-const supportContactEmail = 'your-support-email@example.com';
-
 class PrivacyPolicyScreen extends StatelessWidget {
   const PrivacyPolicyScreen({super.key});
 
@@ -60,18 +56,12 @@ class PrivacyPolicyScreen extends StatelessWidget {
         LegalSection(
           "Children's privacy",
           "This app doesn't knowingly collect personal information from "
-              'anyone, including children. If you believe a child has '
-              'provided personal information through this app, contact us '
-              "below and we'll address it.",
+              'anyone, including children.',
         ),
         LegalSection(
           'Changes to this policy',
           'If this policy ever changes, the update will be included in a '
               'future version of the app and posted here.',
-        ),
-        LegalSection(
-          'Contact us',
-          'Questions about this policy? Reach out at $supportContactEmail.',
         ),
       ],
     );
